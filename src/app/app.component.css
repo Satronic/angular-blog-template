@@ -1,1 +1,11 @@
 
+.dark-theme {
+    background-color: #333;
+    color: white;
+  }
+  
+  .light-theme {
+    background-color: white;
+    color: black;
+  }
+

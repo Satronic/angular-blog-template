@@ -8,12 +8,14 @@ import { MenuItem } from 'primeng/api';
 })
 export class AppComponent {
   title = 'angular-blog-template';
+  isDarkTheme = false;
+
   public items: MenuItem[] = [
     {
       label: 'Noticias',
       icon: 'pi pi-list',
       items: [
-        { label: 'Ultimas noticias', icon: 'pi pi-icon' }
+        { label: 'Ultimas noticias', icon: 'pi pi-icon', routerLink: '/posts' }
       ]
     },
     {
@@ -31,4 +33,13 @@ export class AppComponent {
       ]
     }
   ];
+
+  toggleTheme() {
+    console.log('Theme: ', this.isDarkTheme)
+    this.isDarkTheme = !this.isDarkTheme;
+    document.body.classList.toggle('dark-theme', this.isDarkTheme);
+  }
+
+
+
 }

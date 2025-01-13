@@ -1,0 +1,86 @@
+
+.posts-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+
+  .post-list-container { /* New container for the list */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+
+    &.list-view {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    &.grid-view {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    }
+  }
+
+  
+
+  @media (max-width: 768px) {
+    width: 95%;
+    gap: 10px; 
+  }
+
+  .post-list-container .post-card { /* Target post-card inside post-list-container */
+    /* width: calc(50% - 10px);  Two cards per row with a gap of 10px */
+    width: 100%;
+    height: 300px;
+    background-color: #f2f2f7;
+    border: 1px solid #e5e5ea;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; 
+
+    @media (max-width: 768px) {
+      width: 100%; /* One card per row on smaller screens */
+    }    
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      border: 2px solid #d1c4e9;
+    }
+
+    .post-image-container {
+      width: 100%; 
+      height: 200px; /* Adjust as needed */
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }    
+
+    .post-title {
+      font-size: 1.8em;
+      margin-bottom: 12px;
+      color: #333;
+
+      @media (max-width: 768px) {
+        font-size: 1.5em;
+      }
+    }
+
+    .post-content {
+      color: #666;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }    
+  }
+}
+

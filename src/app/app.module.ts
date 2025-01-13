@@ -7,17 +7,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToolbarModule } from 'primeng/toolbar';
 import { MenubarModule } from 'primeng/menubar';
+import { PostsModule } from './posts/posts.module';
+import { PostDetailModule } from './post-detail/post-detail.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    ToolbarModule,
-    MenubarModule
+    PostsModule,
+    PostDetailModule, 
+    ToolbarModule, 
+    MenubarModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

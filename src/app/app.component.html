@@ -10,27 +10,19 @@
 <style>
 </style>
 
-
-
-
-<router-outlet>
-  <!-- <p-toolbar class="header">
-    <div class="p-toolbar-group-start">
-      <img src="../assets/logo.png" alt="Logo" width="40px" height="40px"/>
-    </div>
-    <div class="p-toolbar-group-center">
-      <p-menubar [model]="items"></p-menubar>
-    </div>
-    <div class="p-toolbar-group-end">
-      <i class="pi pi-user"></i>
-    </div>
-  </p-toolbar> -->
+<div [ngClass]="{'light-theme': isDarkTheme, 'dark-theme': !isDarkTheme}"> 
   <p-menubar [model]="items">
     <ng-template pTemplate="start">
-      <img src="https://primefaces.org/cdn/primeng/images/primeng.svg" height="40" class="mr-2" />
+      <img src="assets/logo.png" height="40" class="mr-2" />
+      <!-- <img src="https://primefaces.org/cdn/primeng/images/primeng.svg" height="40" class="mr-2" /> -->
     </ng-template>
     <ng-template pTemplate="end">
+      <button (click)="toggleTheme()" [ngClass]="{'active': isDarkTheme}">Light Theme</button>
+      <button (click)="toggleTheme()" [ngClass]="{'active': !isDarkTheme}">Dark Theme</button>
       <input type="text" pInputText placeholder="Search" class="w-full" />
     </ng-template>
   </p-menubar>
-</router-outlet>
+
+  <router-outlet>
+  </router-outlet>
+</div>

@@ -1,0 +1,37 @@
+<div class="posts-container" >
+
+  <h2 class="post-count">Total Posts: {{ posts.length }}</h2>
+
+  <app-post-list-view-toggle 
+    (viewChanged)="onPostViewChanged($event)"
+    [selectedView]="selectedView"
+  />
+  
+  <div class="post-list-container" [ngClass]="{'grid-view': selectedView === 'grid', 'list-view': selectedView === 'list'}"> 
+    <!-- <div *ngIf="selectedView === 'list'" class="list-view"> -->
+      <a *ngFor="let post of posts" [routerLink]="[post.id]" class="post-card-link"> 
+        <div class="post-card">
+          <div class="image-container">
+            <img src="https://via.placeholder.com/150" alt="Placeholder Image">
+          </div>
+          <div class="content-container">
+            <div class="card-header"><h3>{{ post.title }}</h3></div>
+            <div class="card-body"><p>{{ post.body }}</p></div>
+          </div>
+        </div>
+      </a>
+    <!-- </div> -->
+
+    <!-- <div *ngIf="selectedView === 'grid'" class="post-grid"> -->
+      <a *ngFor="let post of posts" [routerLink]="[post.id]" class="post-card-link">
+        <div class="post-card">
+          <div class="card-content">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.body }}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  <!-- </div> -->
+
+</div>
